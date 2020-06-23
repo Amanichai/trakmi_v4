@@ -1,4 +1,5 @@
-import React from 'react';
+import createDataContext from '../context/createDataContext';
+
 
 const authReducer = (state, actions)=>{
     switch(actions.type){
@@ -6,3 +7,9 @@ const authReducer = (state, actions)=>{
             return state;
     }
 }
+
+export const {Context, Provider} = createDataContext(
+    authReducer,
+    {},
+    {isSignedIn: false}
+)
